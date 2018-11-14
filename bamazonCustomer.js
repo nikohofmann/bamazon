@@ -72,7 +72,8 @@ function purchaseProduct() {
         connection.query("UPDATE products SET ? WHERE ?",
         [
           {
-            stock_quantity: res[0].stock_quantity - answers.quantity
+            stock_quantity: res[0].stock_quantity - answers.quantity, 
+            product_sales: itemPurchased.price * answers.quantity
           },
           {
             item_id: answers.item
